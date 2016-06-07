@@ -1,0 +1,113 @@
+body {
+    padding: 20px 0;
+    background-color: #EAEAEA !important;
+}
+
+.flash-message {
+    margin-top: 20px;
+}
+
+
+.pinterestal {
+    padding-top: 20px;
+    -webkit-column-count:2;
+    -webkit-column-gap:10px;
+    -webkit-column-fill:auto;
+    -moz-column-count:2;
+    -moz-column-gap:10px;
+    -moz-column-fill:auto;
+    column-count:2;
+    column-gap:10px;
+    column-fill:auto;
+}
+
+.card {
+    display: inline-block;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 10px 10px;
+    margin:0 2px 15px;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    -webkit-transition: all 2s ease;
+    -mz-transition: all 2s ease;
+    -o-transition: all 2s ease;
+    transition: all 2s ease;
+}
+
+.card img {
+    width: 100%;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+.card hr {
+    margin: 0px 0px 10px 0px;
+}
+
+.card p {
+    margin: 0;
+}
+
+@media (min-width: 560) {
+    .pinterestal {
+        -webkit-column-count:3;
+        -moz-column-count:3;
+        column-count:3;
+    }
+}
+
+@media (min-width: 780px) {
+    .pinterestal {
+        -webkit-column-count:4;
+        -moz-column-count:4;
+        column-count:4;
+    }
+}
+
+@media (min-width: 1100px) {
+    .pinterestal {
+        -webkit-column-count:5;
+        -moz-column-count:5;
+        column-count: 5;
+    }
+}
+
+.imgTest{
+    height: auto;
+    width: auto;
+    max-width: 200px;
+    max-height: 220px;
+    border-color: #000;
+}
+
+.inputfile{
+    width: 2px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.1em;
+    width: 100%;
+    font-weight: 700;
+    padding: 4px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    -webkit-transition: background 1s;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #e6f2ff;
+    -webkit-transition: background 1s;
+}

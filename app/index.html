@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>MeetMe</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app-content/app.css">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/Materialize/bin/materialize.css" />
+    <link rel="stylesheet" href="/bower_components/ng-notify/src/styles/ng-notify.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/chat.css -->
+
+    <!-- JS Node Module Scripts -->
+    <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/node_modules/angular-base64-upload/dist/angular-base64-upload.js"></script>
+
+
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/Materialize/bin/materialize.js"></script>
+    <script src="/bower_components/pubnub/web/dist/pubnub.min.js"></script>
+    <script src="/bower_components/pubnub-angular/dist/pubnub-angular.min.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
+    <script src="/bower_components/ng-notify/src/scripts/ng-notify.js"></script>
+
+    <!-- Application Scripts -->
+    <script src="app.js"></script>
+    <script src="app-services/user.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
+    <script src="home/index.controller.js"></script>
+    <script src="account/index.controller.js"></script>
+    <script src="chat/index.controller.js"></script>
+    <!--dodata skripta iz chata-->
+    <script src="app.config.js"></script>
+    <script src="app-services/current_user.service.js"></script>
+    <script src="app-services/message-factory.js"></script>
+
+    <script src="shared/user-avatar.directive.js"></script>
+    <script src="components/message-form/message-form.directive.js"></script>
+    <script src="components/message-list/message-list.directive.js"></script>
+    <script src="components/message-item/message-item.directive.js"></script>
+
+
+
+
+
+
+    <!--skripte iz chata-->
+    <link rel="stylesheet" href="/bower_components/Materialize/bin/materialize.css" />
+    <link rel="stylesheet" href="/bower_components/ng-notify/src/styles/ng-notify.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/chat.css -->
+    <link rel="stylesheet" href="/app/app-content/chat.css">
+    <link rel="stylesheet" href="/app/app-content/ng-notify.theme.css">
+    <!-- endbuild -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body class="container">
+    <!-- header -->
+    <header>
+        <ul class="nav nav-tabs">
+            <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
+            <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+            <li ng-class="{active: activeTab === 'test'}"><a ui-sref="test">Test</a></li>
+            <li><a href="/login" target="_self">Logout</a></li>
+        </ul>
+        <div class="flash-message" ng-if="flash">
+            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main ui-view></main>
+
+
+
+
+    <!-- footer -->
+    <footer></footer>
+
+
+
+
+
+</body>
+</html>
