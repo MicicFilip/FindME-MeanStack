@@ -138,7 +138,7 @@ angular.module('app')
                         uuid: (Date.now() + currentUser),
                         content: messageContent,
                         sender_uuid: senderUsername(),
-                        // sender_picture: senderPicture(),
+                        sender_picture: senderPicture(),
                         date: Date.now()
                     }
                 });

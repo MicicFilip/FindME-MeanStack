@@ -3,11 +3,12 @@ angular.module('app').directive('userAvatar', function() {
         restrict: "E",
         template: '<img src="{{avatarUrl}}" alt="{{uuid}}" class="circle">',
         scope: {
-            uuid: "@"
+            uuid: "@",
+            //senderPicture: "@"
         },
         controller: function($scope){
             // Generating a uniq avatar for the given uniq string provided using robohash.org service
-            $scope.avatarUrl = '//robohash.org/' + $scope.uuid + '?set=set2&bgset=bg2&size=70x70';
+            $scope.avatarUrl = 'data:image/png;base64,' + $scope.uuid;
         }
     };
 });

@@ -5,8 +5,8 @@
                 <i class="prefix mdi-communication-chat"></i>
                 <input ng-model="messageContent" type="text" placeholder="Type your message" >
        <span class="chip left">
-          <user-avatar uuid="{{uuid.user.photoID.base64}}"></user-avatar>
-           <!--<img data-ng-src="data:image/png;base64, {{uuid.user.photoID.base64}}">-->
+          <!--<user-avatar uuid="{{uuid.user.username}}"></user-avatar>-->
+           <img data-ng-src="data:image/png;base64, {{uuid.user.photoID.base64}}">
           Anon #{{uuid.user.username}}
        </span>
             </div>
