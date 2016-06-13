@@ -144,23 +144,20 @@ angular.module('app')
                 });
             };
 
-            // Izvlacenje username-a koji ce se prikazati na message-item
+            // Getovanje username-a koji ce se prikazati na message-item
             function senderUsername() {
                 var sender = currentUser;
 
                 return sender.user.username;
-
             }
-
+            // Getovanje slike koju je korisnik upload-ovao na svom profilu
             function senderPicture(){
                 var picture = currentUser;
 
                 return picture.user.photoID.base64;
-
-
             }
 
-          // console.log("data:image/png;base64,"+senderPicture());
+
 
 
 

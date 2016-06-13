@@ -1,3 +1,4 @@
+(function () {
 angular
     .module('app')
     .run(['Pubnub','currentUser', function(Pubnub, currentUser) {
@@ -21,3 +22,4 @@ angular
         });
 
     }]);
+})();

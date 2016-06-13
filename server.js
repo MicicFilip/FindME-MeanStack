@@ -15,14 +15,16 @@ app.use(bodyParser.json());
 app.use(session({ secret: config.secret, resave: false, saveUninitialized: true }));
 
 // use JWT auth to secure the api
+// Koriscenje JWT autentikacije kako bi se osigurao pristup API-ju
 app.use('/api', expressJwt({ secret: config.secret }).unless({ path: ['/api/users/authenticate', '/api/users/register', '/api/users'] }));
 
-// routes
+// Rute
 app.use('/login', require('./controllers/login.controller'));
 app.use('/register', require('./controllers/register.controller'));
 app.use('/app', require('./controllers/app.controller'));
 app.use('/api/users', require('./controllers/api/users.controller'));
 
+// Main folder postaje jedna od ruta
 app.use(express.static(__dirname + '/'));
 
 // make '/app' default route
@@ -30,7 +32,7 @@ app.get('/', function (req, res) {
     return res.redirect('/app');
 });
 
-// start server
+// Start the local server
 var server = app.listen(3000, function () {
     console.log('Server listening at http://' + server.address().address + ':' + server.address().port);
 

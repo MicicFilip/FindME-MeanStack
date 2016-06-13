@@ -18,6 +18,8 @@
 
         return service;
 
+        // GetCurrent, GetAll,GetById i GetByUsername su funkcije koje vracaju vrednost iz API-ja
+
         function GetCurrent() {
             return $http.get('/api/users/current').then(handleSuccess, handleError);
         }
@@ -34,6 +36,8 @@
         function GetByUsername(username) {
             return $http.get('/api/users/' + username).then(handleSuccess, handleError);
         }
+
+        // Create i Update su funkcije koje ce postovati odredjeni sadrzaj na API
 
         function Create(user) {
             return $http.post('/api/users', user).then(handleSuccess, handleError);

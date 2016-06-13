@@ -9,6 +9,7 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
     // register using api to maintain clean separation between layers
+    // registracija putem API-ja da bi se odrzala cistoca medju slojevima
     request.post({
         url: config.apiUrl + '/users/register',
         form: req.body,
@@ -32,6 +33,7 @@ router.post('/', function (req, res) {
         }
 
         // return to login page with success message
+        // vracanje poruke za uspesnu registraciju
         req.session.success = 'Registration successful';
         return res.redirect('/login');
     });

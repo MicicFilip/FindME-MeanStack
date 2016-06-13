@@ -1,0 +1,69 @@
+<div class="container-full profiler">
+<div class="form-container">
+    <div class="kutija">
+    <form method="post" autocomplete="off">
+
+        <div class="form-group">
+            <h2>Update your profile here</h2>
+            <br>
+
+            <img class="imgTest" ng-src="data:image/png;base64,{{vm.user.photoID.base64}}"/>
+            <img class="imgTest" ng-if="!vm.user.photoID" src="/views/images/profile.png">
+
+            <input type="hidden"/>
+            <br><br>
+            <div class="input-group">
+                <input type="file" id="photoID" ng-model="vm.user.photoID" base-sixty-four-input maxsize="5000"
+                       accept="image/*" class="inputfile">
+                <label for="photoID">Select</label>
+            </div>
+            <p><b>Upload your photo here!</b></p>
+
+
+        </div>
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" class="form-control" ng-model="vm.user.firstName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" class="form-control" ng-model="vm.user.lastName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" ng-model="vm.user.username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="bio">Bio</label>
+            <input type="text" id="bio" class="form-control" ng-model="vm.user.bio">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" ng-model="vm.user.password">
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <input type="radio" class="with-gap" id="genderMale" value="Male" ng-model="vm.user.gender">
+            <label for="genderMale">Male</label>
+            <input type="radio" class="with-gap" id="genderFemale" value="Female" ng-model="vm.user.gender">
+            <label for="genderFemale">Female</label>
+        </div>
+
+
+        <div class="form-group">
+            <button class="btn btn-primary" style="color: black; background-color: #B1D2FD" ng-click="vm.saveUser()">
+                Save
+            </button>
+            <a ui-sref="account">Return to your account</a>
+            <!--<button class="btn btn-danger" ng-click="vm.deleteUser()">Delete</button>-->
+        </div>
+
+    </form>
+    </div>
+</div>
+</div>

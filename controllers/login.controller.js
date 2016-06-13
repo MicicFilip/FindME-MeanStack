@@ -5,6 +5,7 @@ var config = require('config.json');
 
 router.get('/', function (req, res) {
     // log user out
+    // prilikom logout-ovanja brise se JWT token
     delete req.session.token;
 
     // move success message into local variable so it only appears once (single read)
@@ -16,6 +17,7 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
     // authenticate using api to maintain clean separation between layers
+    // autentikacija se vrsi preko API-ja da bi se odrzala cistoca medju slojevima
     request.post({
         url: config.apiUrl + '/users/authenticate',
         form: req.body,
@@ -30,6 +32,7 @@ router.post('/', function (req, res) {
         }
 
         // save JWT token in the session to make it available to the angular app
+        // cuvanje JWT tokena u sesiji kako bi bio dozvoljen pristup angular aplikaciji
         req.session.token = body.token;
 
         // redirect to returnUrl

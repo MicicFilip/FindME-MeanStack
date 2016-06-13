@@ -18,6 +18,7 @@ service.getUsers = getUsers;
 
 module.exports = service;
 
+// Provera autentikacije sa bazom da li korisnik sa tim username-om postoji
 function authenticate(username, password) {
     var deferred = Q.defer();
 
@@ -41,7 +42,6 @@ function getUsers(){
     var deferred = Q.defer();
     db.users.find().toArray(function (err, user) {
         if(user){
-            //console.log(user);
             deferred.resolve(_.omit(user));
         }else{
             deferred.reject(err);
@@ -50,6 +50,8 @@ function getUsers(){
     });
     return deferred.promise;
 }
+
+// Getovanje korisnika po njihovom ID-ju
 function getById(_id) {
     var deferred = Q.defer();
 
@@ -69,6 +71,7 @@ function getById(_id) {
     return deferred.promise;
 }
 
+// Funkcija koja poziva funkciju za registraciju korisnika i njihovo ubacivanje u bazu ako vec ne postoji korisnik sa istim username-om
 function create(userParam) {
     var deferred = Q.defer();
 
@@ -79,13 +82,14 @@ function create(userParam) {
             if (err) deferred.reject(err);
 
             if (user) {
-                // username already exists
+                // Greska ako user vec postoji
                 deferred.reject('Username "' + userParam.username + '" is already taken');
             } else {
                 createUser();
             }
         });
 
+    // Funkcija koja registruje korisnika i password field cuva u hashiranom formatu a ne u cleartext-u
     function createUser() {
         // set user object to userParam without the cleartext password
         var user = _.omit(userParam, 'password', 'confirmPassword');
@@ -109,7 +113,8 @@ function create(userParam) {
 }
 
 
-
+// funkcija koja poziva funkciju za update-ovanje informacija o korisniku
+// takodje se vrsi provera da li taj korisnik vec postoji
 function update(_id, userParam) {
     var deferred = Q.defer();
 
@@ -135,6 +140,7 @@ function update(_id, userParam) {
             updateUser();
         }
     });
+// funkcija koja uzima podatke sa input field-ova i prosledjuje ih u MDB
 
     function updateUser() {
         // fields to update
@@ -149,7 +155,7 @@ function update(_id, userParam) {
 
         };
 
-        // Update password-a ako je unet isti
+        // Update hashiranog password-a ako je unet isti
         if (userParam.password) {
             set.hash = bcrypt.hashSync(userParam.password, 10);
         }

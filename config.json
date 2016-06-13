@@ -1,5 +1,15 @@
 ﻿{
     "connectionString": "mongodb://localhost:27017/filip",
     "apiUrl": "http://localhost:3000/api",
-    "secret": "tralalala"
+    "secret": "Stroga tajna"
 }
+
+
+
+
+
+
+
+
+
+

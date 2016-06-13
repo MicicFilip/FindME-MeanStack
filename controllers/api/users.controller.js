@@ -6,6 +6,7 @@ var userService = require('services/user.service');
 
 
 // routes
+// rute za API-je
 router.post('/authenticate', authenticateUser);
 router.post('/register', registerUser);
 router.get('/current', getCurrentUser);
@@ -15,6 +16,7 @@ router.put('/:_id', updateUser);
 
 module.exports = router;
 
+// Autentikacija je uspesna ako se ispunjavav uslov za username,password i ako je postoji token za sesiju
 function authenticateUser(req, res) {
     userService.authenticate(req.body.username, req.body.password)
         .then(function (token) {
@@ -41,6 +43,8 @@ function registerUser(req, res) {
         });
 }
 
+// Funkcija za vracanje svih korisnika iz baze
+
 function getAllUsers(req, res){
     userService.getUsers().then(function (user) {
         if (user) {
@@ -54,6 +58,8 @@ function getAllUsers(req, res){
             res.status(400).send(err);
         });
 }
+// Funkicija koja vraca informacije o trenutnom korisniku
+
 function getCurrentUser(req, res) {
     userService.getById(req.user.sub)
         .then(function (user) {
@@ -67,6 +73,8 @@ function getCurrentUser(req, res) {
             res.status(400).send(err);
         });
 }
+
+// Funkcija koja ne dozvoljava korisniku da promeni tudje profile
 
 function updateUser(req, res) {
     var userId = req.user.sub;

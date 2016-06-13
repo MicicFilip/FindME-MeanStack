@@ -1,55 +1,124 @@
-﻿<div class="form-container">
-    <form method="post" autocomplete="off">
+﻿<div class="container-full cover">
+    <!-- cover photo -->
+</div>
 
-        <div class="form-group">
-            <h2>Profile picture</h2>
-            <br>
-            <img ng-src="data:image/png;base64,{{vm.user.photoID.base64}}" />
-            <input type="hidden"/>
-            <br><br>
-            <div class="input-group">
-                <input type="file" id="photoID" ng-model="vm.user.photoID" base-sixty-four-input maxsize="5000"
-                       accept="image/*" class="inputfile">
-                <label for="photoID">Select</label>
+<div class="container-full profiler">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-12 avatar-holder">
+                <img class="imgTest" ng-src="data:image/png;base64,{{vm.user.photoID.base64}}"/>
+                <img ng-if="!vm.user.photoID" src="/views/images/profile.png">
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-12 name-holder">
+
+                <a class="edit" ui-sref="editAccount">Edit</a>
+
+                <div class="col-md-12 fullname">
+                    <h2>{{vm.user.firstName}} {{vm.user.lastName}}</h2>
+                </div>
+                <div class="col-md-12 username">
+						<span>
+							<div class="gender">
+                    <!--<div class="sex male"> {{u.gender}} </div>-->
+                    <div ng-if="vm.user.gender == 'Male'">
+                        <div class="sex male">M</div>
+                    </div>
+                    <div ng-if="vm.user.gender == 'Female'">
+                        <div class="sex female">F</div>
+                    </div>
+                </div>
+						</span>
+                </div>
+                <div class="description">
+                    <q> {{vm.user.bio}}</q>
+                </div>
+                <div class="user-images clearfix">
+                    <p><b>Images:</b></p>
+
+                    <div class="col-md-12 images-holder clearfix">
+                        <div class="col-md-4 col-sm-4 image">
+                            <img src="/app/app-content/profile.png" class="responsive">
+                        </div>
+                        <div class="col-md-4 col-sm-4 image">
+                            <img src="/app/app-content/profile.png" class="responsive">
+                        </div>
+                        <div class="col-md-4 col-sm-4 image">
+                            <img src="/app/app-content/profile.png" class="responsive">
+                        </div>
+                        <div class="col-md-4 col-sm-4 image">
+                            <img src="/app/app-content/profile.png" class="responsive">
+                        </div>
+                        <div class="col-md-4 col-sm-4 image">
+                            <img src="/app/app-content/profile.png" class="responsive">
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-        <!--<input type="text" id="demo" class="form-control" ng-model="vm.user.photoID.base64">-->
-        <div class="form-group">
-            <label for="firstName">First name</label>
-            <input type="text" id="firstName" class="form-control" ng-model="vm.user.firstName" required>
-        </div>
-
-        <div class="form-group">
-            <label for="lastName">Last name</label>
-            <input type="text" id="lastName" class="form-control" ng-model="vm.user.lastName" required>
-        </div>
-
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" class="form-control" ng-model="vm.user.username" required>
-        </div>
-
-        <div class="form-group">
-            <label for="bio">Bio</label>
-            <input type="text" id="bio" class="form-control" ng-model="vm.user.bio">
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" class="form-control" ng-model="vm.user.password">
-        </div>
-
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <label class="radio-inline"><input type="radio" id="gender" value="Male"
-                                               ng-model="vm.user.gender">Male</label>
-            <label class="radio-inline"><input type="radio" id="gender" value="Female" ng-model="vm.user.gender">Female</label>
-        </div>
-
-        <div class="form-group">
-            <button class="btn btn-primary" ng-click="vm.saveUser()">Save</button>
-            <!--<button class="btn btn-danger" ng-click="vm.deleteUser()">Delete</button>-->
-        </div>
-
-    </form>
+    </div>
 </div>
+
+
+<!--<div class="form-container">-->
+    <!--<form method="post" autocomplete="off">-->
+
+        <!--<div class="form-group">-->
+            <!--<h2>Profile picture</h2>-->
+            <!--<br>-->
+
+            <!--<img class="imgTest" ng-src="data:image/png;base64,{{vm.user.photoID.base64}}"/>-->
+            <!--<img class="imgTest" ng-if="!vm.user.photoID" src="/views/images/profile.png">-->
+
+            <!--<input type="hidden"/>-->
+            <!--<br><br>-->
+            <!--<div class="input-group">-->
+                <!--<input type="file" id="photoID" ng-model="vm.user.photoID" base-sixty-four-input maxsize="5000"-->
+                       <!--accept="image/*" class="inputfile">-->
+                <!--<label for="photoID">Select</label>-->
+            <!--</div>-->
+            <!--<p><b>Upload your photo here!</b></p>-->
+
+
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="firstName">First name</label>-->
+            <!--<input type="text" id="firstName" class="form-control" ng-model="vm.user.firstName" required>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label for="lastName">Last name</label>-->
+            <!--<input type="text" id="lastName" class="form-control" ng-model="vm.user.lastName" required>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label for="username">Username</label>-->
+            <!--<input type="text" id="username" class="form-control" ng-model="vm.user.username" required>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label for="bio">Bio</label>-->
+            <!--<input type="text" id="bio" class="form-control" ng-model="vm.user.bio">-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label for="password">Password</label>-->
+            <!--<input type="password" id="password" class="form-control" ng-model="vm.user.password">-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+            <!--<label>Gender</label>-->
+            <!--<input type="radio" class="with-gap" id="genderMale" value="Male" ng-model="vm.user.gender">-->
+            <!--<label for="genderMale">Male</label>-->
+            <!--<input type="radio" class="with-gap" id="genderFemale" value="Female" ng-model="vm.user.gender">-->
+            <!--<label for="genderFemale">Female</label>-->
+        <!--</div>-->
+
+
+        <!--<div class="form-group">-->
+            <!--<button class="btn btn-primary" style="color: black; background-color: #BCF2FF" ng-click="vm.saveUser()">Save</button>-->
+            <!--&lt;!&ndash;<button class="btn btn-danger" ng-click="vm.deleteUser()">Delete</button>&ndash;&gt;-->
+        <!--</div>-->
+
+    <!--</form>-->
+<!--</div>-->

@@ -1,83 +1,144 @@
 ﻿<%- include('partials/header') %>
-<div class="form-container">
-    <h2>Register</h2>
-    <% if(locals.error) { %>
-    <div class="alert alert-danger"><%= error %></div>
-    <% } %>
-<div ng-app="validationApp">
-    <div ng-controller="validationController as user">
-    <form method="post" role="form" name="registerForm" action="/register" novalidate autocomplete="off">
+<div class="container-full" id="landing">
+
+    <div class="focus">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-container">
+                    <h2>Register</h2>
+                    <% if(locals.error) { %>
+                    <div class="alert alert-danger"><%= error %></div>
+                    <% } %>
+                    <div ng-app="validationApp">
+                        <div ng-controller="validationController as user">
+                            <form method="post" role="form" name="registerForm" action="/register" novalidate
+                                  autocomplete="off">
 
 
-            <div class="form-group" ng-class="{ 'has-error' : registerForm.firstName.$invalid && registerForm.firstName.$touched }">
-            <label for="firstName">First name</label>
-            <input type="text" name="firstName" id="firstName" ng-model="user.firstName" ng-minlength="2" ng-maxlength="16" capitalize-first class="form-control" value="<%= locals.firstName || '' %>" required />
-            <div class="help-block" ng-messages="registerForm.firstName.$error" ng-if="registerForm.firstName.$touched">
-                <p ng-message="minlength">Your first name must be at least 2 characters long</p>
-                <p ng-message="maxlength">Your first name must be maximum 16 characters long</p>
-                <p ng-message="required">Your first name is required.</p>
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : registerForm.firstName.$invalid && registerForm.firstName.$touched }">
+                                    <label for="firstName">First name</label>
+                                    <input type="text" name="firstName" id="firstName" ng-model="user.firstName"
+                                           ng-minlength="2" ng-maxlength="16" capitalize-first class="form-control"
+                                           value="<%= locals.firstName || '' %>" required/>
+                                    <div class="help-block" ng-messages="registerForm.firstName.$error"
+                                         ng-if="registerForm.firstName.$touched">
+                                        <p ng-message="minlength">Your first name must be at least 2 characters long</p>
+                                        <p ng-message="maxlength">Your first name must be maximum 16 characters long</p>
+                                        <p ng-message="required">Your first name is required.</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : registerForm.lastName.$invalid && registerForm.lastName.$touched }">
+                                    <label for="lastName">Last name</label>
+                                    <input type="text" name="lastName" id="lastName" ng-model="user.lastName"
+                                           ng-minlength="2" ng-maxlength="16" capitalize-first class="form-control"
+                                           value="<%= locals.lastName || '' %>" required/>
+                                    <div class="help-block" ng-messages="registerForm.lastName.$error"
+                                         ng-if="registerForm.lastName.$touched">
+                                        <p ng-message="minlength">Your last name must be at least 2 characters long</p>
+                                        <p ng-message="maxlength">Your last name must be maximum 16 characters long</p>
+                                        <p ng-message="required">Your last name is required.</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : registerForm.uemail.$invalid && registerForm.uemail.$touched }">
+                                    <label for="uemail">Email</label>
+                                    <input type="email" name="uemail" id="uemail" ng-model="user.uemail"
+                                           ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/"
+                                           class="form-control" value="<%= locals.uemail || '' %>" required/>
+                                    <div class="help-block" ng-messages="registerForm.uemail.$error"
+                                         ng-if="registerForm.uemail.$touched">
+                                        <p ng-message="pattern">Your email is not valid</p>
+                                        <p ng-message="required">Your email is required</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : registerForm.username.$invalid && registerForm.username.$touched }">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" id="username" ng-model="user.username"
+                                           ng-minlength="4" ng-maxlength="16" ng-pattern="/^[a-zA-Z0-9]*$/"
+                                           class="form-control" value="<%= locals.username || '' %>" required/>
+                                    <div class="help-block" ng-messages="registerForm.username.$error"
+                                         ng-if="registerForm.username.$touched">
+                                        <p ng-message="minlength">Your username must be at least 4 characters long</p>
+                                        <p ng-message="maxlength">Your username must be maximum 16 characters long</p>
+                                        <p ng-message="pattern">Your username can contain only alphanumeric
+                                            characters</p>
+                                        <p ng-message="required">Your username is required</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : registerForm.password.$invalid && registerForm.password.$touched }">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" ng-model="user.password"
+                                           ng-minlength="6" ng-maxlength="32"
+                                           ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" class="form-control"
+                                           required/>
+                                    <div class="help-block" ng-messages="registerForm.password.$error"
+                                         ng-if="registerForm.password.$touched">
+                                        <p ng-message="minlength">Your password must be at least 4 characters long</p>
+                                        <p ng-message="maxlength">Your password must be maximum 32 characters long</p>
+                                        <p ng-message="pattern">Your Password must contain one lower & uppercase letter,
+                                            and one non-alpha character(a number or a symbol.) </p>
+                                        <p ng-message="required">Your password is required</p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group"
+                                     ng-class="{ 'has-error' : registerForm.confirmPassword.$invalid && registerForm.confirmPassword.$touched }">
+                                    <label for="confirmPassword">Confirm Password</label>
+                                    <input type="password" name="confirmPassword" id="confirmPassword"
+                                           ng-model="user.confirmPassword" match-password="password"
+                                           class="form-control" required/>
+                                    <div class="help-block" ng-messages="registerForm.confirmPassword.$error"
+                                         ng-if="registerForm.confirmPassword.$touched">
+                                        <p ng-message="passwordMatch">Your passwords don't match</p>
+                                        <p ng-message="required">Your password is required</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary" ng-disabled="registerForm.$invalid"
+                                            onclick="create">Register
+                                    </button>
+                                    <a href="/login" class="btn btn-link">Cancel</a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="form-group" ng-class="{ 'has-error' : registerForm.lastName.$invalid && registerForm.lastName.$touched }">
-            <label for="lastName">Last name</label>
-            <input type="text" name="lastName" id="lastName" ng-model="user.lastName" ng-minlength="2" ng-maxlength="16" capitalize-first class="form-control" value="<%= locals.lastName || '' %>" required />
-            <div class="help-block" ng-messages="registerForm.lastName.$error" ng-if="registerForm.lastName.$touched">
-                <p ng-message="minlength">Your last name must be at least 2 characters long</p>
-                <p ng-message="maxlength">Your last name must be maximum 16 characters long</p>
-                <p ng-message="required">Your last name is required.</p>
-            </div>
-        </div>
-
-        <div class="form-group" ng-class="{ 'has-error' : registerForm.uemail.$invalid && registerForm.uemail.$touched }">
-            <label for="uemail">Email</label>
-            <input type="email" name="uemail" id="uemail" ng-model="user.uemail" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" class="form-control" value="<%= locals.uemail || '' %>" required />
-            <div class="help-block" ng-messages="registerForm.uemail.$error" ng-if="registerForm.uemail.$touched">
-                <p ng-message="pattern">Your email is not valid</p>
-                <p ng-message="required">Your email is required</p>
-            </div>
-        </div>
-
-        <div class="form-group" ng-class="{ 'has-error' : registerForm.username.$invalid && registerForm.username.$touched }">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" ng-model="user.username" ng-minlength="4" ng-maxlength="16" ng-pattern="/^[a-zA-Z0-9]*$/" class="form-control" value="<%= locals.username || '' %>" required />
-            <div class="help-block" ng-messages="registerForm.username.$error" ng-if="registerForm.username.$touched">
-                <p ng-message="minlength">Your username must be at least 4 characters long</p>
-                <p ng-message="maxlength">Your username must be maximum 16 characters long</p>
-                <p ng-message="pattern">Your username can contain only alphanumeric characters</p>
-                <p ng-message="required">Your username is required</p>
-            </div>
-        </div>
-
-        <div class="form-group"  ng-class="{ 'has-error' : registerForm.password.$invalid && registerForm.password.$touched }">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password"  ng-model="user.password" ng-minlength="6" ng-maxlength="32" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" class="form-control" required />
-            <div class="help-block" ng-messages="registerForm.password.$error" ng-if="registerForm.password.$touched">
-                <p ng-message="minlength">Your password must be at least 4 characters long</p>
-                <p ng-message="maxlength">Your password must be maximum 32 characters long</p>
-                <p ng-message="pattern">Your Password must contain one lower & uppercase letter, and one non-alpha character(a number or a symbol.) </p>
-                <p ng-message="required">Your password is required</p>
-            </div>
-        </div>
-
-        <div class="form-group"  ng-class="{ 'has-error' : registerForm.confirmPassword.$invalid && registerForm.confirmPassword.$touched }">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" name="confirmPassword" id="confirmPassword" ng-model="user.confirmPassword" match-password="password" class="form-control" required />
-            <div class="help-block" ng-messages="registerForm.confirmPassword.$error" ng-if="registerForm.confirmPassword.$touched">
-                <p ng-message="passwordMatch">Your passwords don't match</p>
-                <p ng-message="required">Your password is required</p>
-            </div>
-        </div>
-
-
-        <div class="form-group">
-                <button type="submit" class="btn btn-primary" ng-disabled="registerForm.$invalid" onclick="create">Register</button>
-                <a href="/login" class="btn btn-link">Cancel</a>
-            </div>
-
-    </form>
-</div>
-</div>
     </div>
+
+
+    <div class="container">
+			<span>
+				<h1>Meet Awesome People ;}</h1>
+				<p>
+				Lorem est ipsum, dolor sit amet,
+				Dolor est ipsum,  <br/> amet
+				tis dolor.  Dolor est ipsum, amet tis dolor dru falak.
+				</p>
+				<div class="people">
+					<img src="/views/images/profile.png">
+					<img src="/views/images/profile.png">
+					<img src="/views/images/profile.png">
+					<img src="/views/images/profile.png">
+					<img src="/views/images/profile.png">
+				</div>
+
+			</span>
+    </div>
+
+
+</div>
 
 <%- include('partials/footer') %>

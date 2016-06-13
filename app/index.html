@@ -4,14 +4,13 @@
     <meta charset="utf-8" />
     <title>MeetMe</title>
 
-    <!-- External CSS -->
+    <!-- Eksterni CSS -->
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="app-content/app.css">
 
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
+
+
     <link rel="stylesheet" href="/bower_components/Materialize/bin/materialize.css" />
     <link rel="stylesheet" href="/bower_components/ng-notify/src/styles/ng-notify.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -19,14 +18,14 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/chat.css -->
 
-    <!-- JS Node Module Scripts -->
+    <!-- JS Node Modul skripte -->
     <script type="text/javascript" src="/node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script type="text/javascript" src="/node_modules/angular-base64-upload/dist/angular-base64-upload.js"></script>
 
 
-    <!-- bower:js -->
+    <!-- JS Bower Modul skripte -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
     <script src="/bower_components/Materialize/bin/materialize.js"></script>
@@ -42,7 +41,9 @@
     <script src="home/index.controller.js"></script>
     <script src="account/index.controller.js"></script>
     <script src="chat/index.controller.js"></script>
-    <!--dodata skripta iz chata-->
+    <script src="editAccount/index.controller.js"></script>
+
+    <!--Eksterne skripte za chata-->
     <script src="app.config.js"></script>
     <script src="app-services/current_user.service.js"></script>
     <script src="app-services/message-factory.js"></script>
@@ -57,31 +58,75 @@
 
 
 
-    <!--skripte iz chata-->
-    <link rel="stylesheet" href="/bower_components/Materialize/bin/materialize.css" />
-    <link rel="stylesheet" href="/bower_components/ng-notify/src/styles/ng-notify.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
+
+
     <!-- build:css(.tmp) styles/chat.css -->
     <link rel="stylesheet" href="/app/app-content/chat.css">
     <link rel="stylesheet" href="/app/app-content/ng-notify.theme.css">
-    <!-- endbuild -->
+    <!-- Ubacivanje Custom Fonta -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </head>
-<body class="container">
+<body>
     <!-- header -->
-    <header>
-        <ul class="nav nav-tabs">
-            <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
-            <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
-            <li ng-class="{active: activeTab === 'test'}"><a ui-sref="test">Test</a></li>
-            <li><a href="/login" target="_self">Logout</a></li>
-        </ul>
+
+    <div class="container-full header-upper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <a ui-sref="home" class="brand">
+                        <span><img src="/app/app-content/logo.jpg" > find awesome people!</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-full header-lower">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 searcher">
+                    <input type="text" placeholder="Search everything!" name="place" id="place">
+                    <input type="submit" value="GO">
+                </div>
+                <div class="col-md-6 col-sm-6 links">
+                    <ul>
+                        <li>
+                            <a ui-sref="test">
+                                Chat
+                            </a>
+                        </li>
+                        <li>
+                            <a ui-sref="account">
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/login" target="_self">
+                                Logout
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<ul class="nav nav-tabs">-->
+            <!--<li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>-->
+            <!--<li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>-->
+            <!--<li ng-class="{active: activeTab === 'test'}"><a ui-sref="test">Test</a></li>-->
+            <!--<li><a href="/login" target="_self">Logout</a></li>-->
+        <!--</ul>-->
         <div class="flash-message" ng-if="flash">
             <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
         </div>
-    </header>
+
 
     <!-- main -->
     <main ui-view></main>

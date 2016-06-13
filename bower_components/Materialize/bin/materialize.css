@@ -5467,7 +5467,7 @@ select:focus {
 
 button:focus {
   outline: none;
-  background-color: #2ab7a9;
+  background-color: #BCF2FF;
 }
 
 label {
@@ -5596,8 +5596,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #26a69a;
-  box-shadow: 0 1px 0 0 #26a69a;
+  border-bottom: 1px solid #B1D2FD;
+  box-shadow: 0 1px 0 0 #B1D2FD;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -5613,7 +5613,7 @@ input[type=tel]:focus:not([readonly]) + label,
 input[type=number]:focus:not([readonly]) + label,
 input[type=search]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #26a69a;
+  color: #B1D2FD;
 }
 
 input:not([type]).valid, input:not([type]):focus.valid,
@@ -5965,12 +5965,12 @@ textarea.materialize-textarea {
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:before,
 [type="radio"].with-gap:checked + label:after {
-  border: 2px solid #26a69a;
+  border: 2px solid #B1D2FD;
 }
 
 [type="radio"]:checked + label:after,
 [type="radio"].with-gap:checked + label:after {
-  background-color: #26a69a;
+  background-color: #B1D2FD;
   z-index: 0;
 }
 
@@ -7846,14 +7846,14 @@ input[type=range]:focus::-ms-fill-upper {
 .picker__button--close:hover {
   cursor: pointer;
   color: #000000;
-  background: #b1dcfb;
-  border-bottom-color: #b1dcfb;
+  background: #BCF2FF;
+  border-bottom-color: #BCF2FF;
 }
 
 .picker__button--today:focus,
 .picker__button--clear:focus,
 .picker__button--close:focus {
-  background: #b1dcfb;
+  background: #BCF2FF;
   border-color: rgba(0, 0, 0, 0.05);
   outline: none;
 }
@@ -7916,7 +7916,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .picker__date-display {
   text-align: center;
-  background-color: #26a69a;
+  background-color: #BCF2FF;
   color: #fff;
   padding-bottom: 15px;
   font-weight: 300;
@@ -7930,7 +7930,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .picker__weekday-display {
-  background-color: #1f897f;
+  background-color: #BCF2FF;
   padding: 10px;
   font-weight: 200;
   letter-spacing: .5;
@@ -7979,7 +7979,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .picker__day.picker__day--today {
-  color: #26a69a;
+  color: #BCF2FF;
 }
 
 .picker__day.picker__day--today.picker__day--selected {
@@ -7996,7 +7996,7 @@ input[type=range]:focus::-ms-fill-upper {
   border-radius: 50%;
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
-  background-color: #26a69a;
+  background-color: #BCF2FF;
   color: #ffffff;
 }
 
@@ -8035,7 +8035,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 button.picker__today:focus, button.picker__clear:focus, button.picker__close:focus {
-  background-color: #a1ded8;
+  background-color: #BCF2FF;
 }
 
 /* ==========================================================================

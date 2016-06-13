@@ -1,25 +1,57 @@
 ﻿<%- include('partials/header') %>
-<div class="form-container">
-    <h2>Login</h2>
-    <% if(locals.error) { %>
-        <div class="alert alert-danger"><%= error %></div>
-    <% } %>
-    <% if(locals.success) { %>
-        <div class="alert alert-success"><%= success %></div>
-    <% } %>
-    <form method="post" action="/login" autocomplete="off">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" value="<%= locals.username || '' %>" class="form-control" />
+<div class="container-full" id="landing">
+
+    <div class="focus">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-container">
+                    <h2>Login</h2>
+                    <% if(locals.error) { %>
+                    <div class="alert alert-danger"><%= error %></div>
+                    <% } %>
+                    <% if(locals.success) { %>
+                    <div class="alert alert-success"><%= success %></div>
+                    <% } %>
+                    <form method="post" action="/login" autocomplete="off">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" value="<%= locals.username || '' %>"
+                                   class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                            <a href="/register" class="btn btn-link">Register</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" class="form-control" />
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="/register" class="btn btn-link">Register</a>
-        </div>
-    </form>
+    </div>
+
+
+    <div class="container">
+			<span>
+				<h1>Meet Awesome People ;}</h1>
+				<p>
+				Lorem est ipsum, dolor sit amet,
+				Dolor est ipsum,  <br/> amet
+				tis dolor.  Dolor est ipsum, amet tis dolor dru falak.
+				</p>
+				<div class="people">
+					<img src="/views/images/profile.png">
+					<img src="/views/images/profile.png">
+					<img src="/views/images/profile.png">
+					<img src="/views/images/profile.png">
+					<img src="/views/images/profile.png">
+				</div>
+
+			</span>
+    </div>
+
+
 </div>
 <%- include('partials/footer') %>

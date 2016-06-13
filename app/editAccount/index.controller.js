@@ -1,8 +1,8 @@
-﻿(function () {
+(function () {
     'use strict';
 
     angular.module('app')
-        .controller('Account.IndexController', Controller)
+        .controller('EditAccount.IndexController', Controller)
         .requires.push('naif.base64');
 
 
@@ -15,6 +15,7 @@
 
         initController();
 
+
         function initController() {
             // get current user
             UserService.GetCurrent().then(function (user) {
@@ -26,6 +27,7 @@
             UserService.Update(vm.user)
                 .then(function () {
                     FlashService.Success('User updated');
+                    
                 })
                 .catch(function (error) {
                     FlashService.Error(error);
@@ -43,6 +45,6 @@
         //         });
         // }
     }
-    
+
 
 })();

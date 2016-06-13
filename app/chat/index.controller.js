@@ -14,24 +14,12 @@
         initController();
 
         function initController() {
-            // get current user
+            // get trenutnog logovanog korisnika
             UserService.GetCurrent().then(function (user) {
                 vm.user = user;
             });
         }
 
-        /*var vm = this;
-
-        vm.user = null;
-
-        initController();
-        
-        // URL API-ja se hvata iz GetAll() funkcije koja se nalazi u user.service
-        function initController() {
-            UserService.GetAll().then(function (data) {
-                $scope.user = data;
-            });
-        }*/
 
     }
 

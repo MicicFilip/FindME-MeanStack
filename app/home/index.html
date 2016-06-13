@@ -1,24 +1,41 @@
-﻿<!--
-<p>{{vm.user.photoID.base64}}</p>
-<img data-ng-src="data:image/png;base64,{{vm.user.photoID.base64}}"/>
-<p>{{vm.user.firstName}}</p>-->
-
+﻿
 <div class="container">
-
     <div class="pinterestal">
 
         <div class="card" ng-repeat="u in user">
-            <img data-ng-src="data:image/png;base64,{{u.photoID.base64}}" />
-
-            <hr>
-            <p>
-                Username: {{u.username}} <br>
-                First name: {{u.firstName}} <br>
-                Last name: {{u.lastName}} <br>
-                Gender: {{u.gender}} <br>
-                Bio: {{u.bio}} <br>
-
+            <div class="avatar">
+                <img data-ng-src="data:image/png;base64,{{u.photoID.base64}}">
+                <img ng-if="!u.photoID" src="/views/images/profile.png">
+            </div>
+            <div class="who-is clearfix">
+                <div class="username">
+                    {{u.username}}
+                </div>
+                <div class="gender">
+                    <!--<div class="sex male"> {{u.gender}} </div>-->
+                    <div ng-if="u.gender == 'Male'">
+                        <div class="sex male">M</div>
+                    </div>
+                    <div ng-if="u.gender == 'Female'">
+                        <div class="sex female">F</div>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <q>
+                   {{u.bio}}
+                    <span ng-if="!u.bio">{{u.username}} is being mysterious</span>
+                </q>
+            </div>
+            <div class="options">
+                <div class="message">
+                    <span><img src="/app/app-content/icon-message.png">Hello</span>
+                </div>
+                <div class="like">
+                    <span><img src="/app/app-content/icon-like.png">Like</span>
+                </div>
+            </div>
         </div>
 
-    </div>
 </div>
+    </div>
