@@ -1,5 +1,5 @@
 ﻿{
-    "connectionString": "mongodb://localhost:27017/filip",
+    "connectionString": "mongodb://localhost:27017/baza",
     "apiUrl": "http://localhost:3000/api",
     "secret": "Stroga tajna"
 }
