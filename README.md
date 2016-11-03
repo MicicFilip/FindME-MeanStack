@@ -1,3 +1,3 @@
-# FindMe
+# FindMe - Mongo, ExpressJS, AngularJS, NodeJS
 
 
